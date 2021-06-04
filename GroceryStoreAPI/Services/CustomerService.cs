@@ -58,7 +58,7 @@ namespace GroceryStoreAPI.Services
 
         public Customer Update(Customer C)
         {
-            if (C.name.Trim().Length > 0) { 
+            if (C.name.Trim().Length > 0 && Customers.Any(x=>x.id==C.id)) { 
             var candidate = Customers.First(x => x.id == C.id);
             candidate.name = C.name;
             PushToDataBase();

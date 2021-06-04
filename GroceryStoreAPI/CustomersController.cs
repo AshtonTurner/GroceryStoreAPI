@@ -57,7 +57,7 @@ namespace GroceryStoreAPI
         }
 
         // PUT api/<ValuesController>/5
-        [HttpPut("updatecustomer/{id}")]
+        [HttpPut("updatecustomer/")]
         public ActionResult<Customer> Put([FromBody] Customer C)
         {
                 var item =_customerservice.Update(C);

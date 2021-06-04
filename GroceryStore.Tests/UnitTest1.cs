@@ -30,8 +30,16 @@ namespace GroceryStore.Tests
         public void DidUpdateTxt_Fail()
         {
             var c = new Customer() { id = 1, name = "" };
-            var result = _customerService.Add(c);
+            var result = _customerService.Update(c);
             Assert.Null(result, "You cannot enter blank names.");
+        }
+
+        [Test]
+        public void DidUpdateTxt_BadId_Fail()
+        {
+            var c = new Customer() { id = 19, name = "Larry" };
+            var result = _customerService.Update(c);
+            Assert.Null(result, "Customer must exist.");
         }
 
         [Test]
