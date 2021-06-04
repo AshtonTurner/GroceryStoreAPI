@@ -17,6 +17,7 @@ namespace GroceryStoreAPI.Services
         {
             try
             {
+                //assuming the directory of the database
                 string text = File.ReadAllText(path);
                 CustomerDatabase = JsonConvert.DeserializeObject<Customers>(text);
                 Customers = CustomerDatabase.customers;
