@@ -24,16 +24,22 @@ namespace GroceryStoreAPI
         }
 
 
-        // GET api/<ValuesController>/5
+        // GET api/customers
         [HttpGet]
+        public string Get()
+        {
+
+            return "API is live.";
+        }
+
+        [HttpGet("getcustomers/")]
         public ActionResult<IEnumerable<Customer>> GetAllCustomers()
         {
             var items = _customerservice.GetAllCustomers();
             return Ok(items);
         }
 
-
-        // GET api/<ValuesController>/5
+        // GET api/customers/customerid
         [HttpGet("getcustomer/{id}")]
         public ActionResult<Customer> GetCustomer(int id)
         {
@@ -45,7 +51,7 @@ namespace GroceryStoreAPI
             return Ok(customer);
         }
 
-        // POST api/<ValuesController>
+        // POST api/customers/addcustomer
         [HttpPost("addcustomer/")]
         public ActionResult<Customer> AddCustomers([FromBody] Customer C)
         {
@@ -56,7 +62,7 @@ namespace GroceryStoreAPI
             return BadRequest();
         }
 
-        // PUT api/<ValuesController>/5
+        // PUT api/customers/updatecustomer
         [HttpPut("updatecustomer/")]
         public ActionResult<Customer> Put([FromBody] Customer C)
         {
